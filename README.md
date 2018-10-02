@@ -38,7 +38,7 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 ## Notes
 
 Describe any challenges encountered while building the app.
-*Building the posts dictionary and casting along the way from the JSON data. 
+* Building the posts dictionary and casting along the way from the JSON data. 
 
 ## License
 
