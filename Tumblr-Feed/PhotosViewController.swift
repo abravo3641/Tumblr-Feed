@@ -55,7 +55,6 @@ class PhotosViewController: UIViewController, UITableViewDataSource, UITableView
                 self.posts = responseDictionary["posts"] as! [[String: Any]]
                 self.tableView.reloadData()
                 
-                usleep(400000)
                 self.activityIndicator.stopAnimating()
             }
         }
