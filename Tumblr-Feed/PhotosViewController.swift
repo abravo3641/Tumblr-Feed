@@ -80,7 +80,6 @@ class PhotosViewController: UIViewController, UITableViewDataSource, UITableView
             let url = URL(string: urlString)!
             cell.postImage.af_setImage(withURL: url)
         }
-        
         return cell
     }
     
