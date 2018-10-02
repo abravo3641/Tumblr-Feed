@@ -22,13 +22,10 @@ class PhotosViewController: UIViewController, UITableViewDataSource, UITableView
         activityIndicator.startAnimating() //Display middle spinning circle
         super.viewDidLoad()
         
-        //Creating refresh control: top spining circle when pulled down
+        //Creating refresh control
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(PhotosViewController.pulledRefresh(_:)), for: .valueChanged)
-        //Notifies the view controlller when pulled down and calls pulledRefresh method to tell it what to do
-        //Note that withing the pulled refresh method the object refresh control gets passed in
         tableView.insertSubview(refreshControl, at: 0)
-        //Puts the spinning circle at the top of the screen, row 0
         
         
         tableView.dataSource = self
@@ -41,7 +38,6 @@ class PhotosViewController: UIViewController, UITableViewDataSource, UITableView
     @objc func pulledRefresh(_ refreshControl:UIRefreshControl) {
         fetchPosts() //Get movie data
         refreshControl.endRefreshing()
-        //After data is obtained, stop top spinning circle
     }
     
     func fetchPosts() {
