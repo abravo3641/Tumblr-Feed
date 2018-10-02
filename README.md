@@ -60,7 +60,7 @@ Describe any challenges encountered while building the app.
     
     
     
-    # Lab 2 - *Tumbler-Feed*
+# Lab 2 - *Tumbler-Feed*
 
 **Tumbler-Feed** is a photo browsing app app using the [The Tumblr API](https://www.tumblr.com/docs/en/api/v2#posts).
 
