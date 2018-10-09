@@ -1,6 +1,10 @@
-// Name: Anthony Bravo
-// Lab Partner: Christina Sarcone
-
+//
+//  PhotosViewController.swift
+//  Tumblr-Feed
+//
+//  Created by Anthony Bravo on 9/29/18.
+//  Copyright © 2018 Anthony Bravo. All rights reserved.
+//
 
 import UIKit
 import AlamofireImage
@@ -10,8 +14,6 @@ class PhotosViewController: UIViewController, UITableViewDataSource, UITableView
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-    var image: UIImage!
-
     
     var posts: [[String: Any]] = [] //Holds dictionary of photos
 
@@ -20,10 +22,13 @@ class PhotosViewController: UIViewController, UITableViewDataSource, UITableView
         activityIndicator.startAnimating() //Display middle spinning circle
         super.viewDidLoad()
         
-        //Creating refresh control
+        //Creating refresh control: top spining circle when pulled down
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(PhotosViewController.pulledRefresh(_:)), for: .valueChanged)
+        //Notifies the view controlller when pulled down and calls pulledRefresh method to tell it what to do
+        //Note that withing the pulled refresh method the object refresh control gets passed in
         tableView.insertSubview(refreshControl, at: 0)
+        //Puts the spinning circle at the top of the screen, row 0
         
         
         tableView.dataSource = self
@@ -36,6 +41,7 @@ class PhotosViewController: UIViewController, UITableViewDataSource, UITableView
     @objc func pulledRefresh(_ refreshControl:UIRefreshControl) {
         fetchPosts() //Get movie data
         refreshControl.endRefreshing()
+        //After data is obtained, stop top spinning circle
     }
     
     func fetchPosts() {
@@ -77,11 +83,34 @@ class PhotosViewController: UIViewController, UITableViewDataSource, UITableView
             let urlString = originalSize["url"] as! String
             let url = URL(string: urlString)!
             cell.postImage.af_setImage(withURL: url)
-            
         }
+        
         return cell
     }
     
-
-
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let DetailsVC = segue.destination as! PhotosDetailsViewController
+        let cell = sender as! UITableViewCell
+        let indexPath = tableView.indexPath(for: cell)!
+        let post = posts[indexPath.row]
+        
+        
+        if let photos = post["photos"] as? [[String:Any]] {
+            //Photos is not nil, we are safe to use it
+            let photo = photos[0]
+            let originalSize = photo["original_size"] as! [String:Any]
+            let urlString = originalSize["url"] as! String
+            DetailsVC.url = urlString
+        }
+        
+    }
+    
+    
+    //Removes gray region of selected cell
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
 }

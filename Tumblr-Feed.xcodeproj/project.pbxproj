@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		492D00C621682C5800D40BFB /* PhotosDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492D00C521682C5800D40BFB /* PhotosDetailsViewController.swift */; };
 		495747F3216039C300804666 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495747F2216039C300804666 /* AppDelegate.swift */; };
 		495747F8216039C300804666 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 495747F6216039C300804666 /* Main.storyboard */; };
 		495747FA216039C500804666 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 495747F9216039C500804666 /* Assets.xcassets */; };
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		492D00C521682C5800D40BFB /* PhotosDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosDetailsViewController.swift; sourceTree = "<group>"; };
 		495747EF216039C300804666 /* Tumblr-Feed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tumblr-Feed.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		495747F2216039C300804666 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		495747F7216039C300804666 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				495747F2216039C300804666 /* AppDelegate.swift */,
+				492D00C521682C5800D40BFB /* PhotosDetailsViewController.swift */,
 				49574822216040FD00804666 /* PhotosViewController.swift */,
 				49EE4ECD2161785D00995DDB /* PhotoCell.swift */,
 				495747F6216039C300804666 /* Main.storyboard */,
@@ -327,6 +330,7 @@
 			files = (
 				495747F3216039C300804666 /* AppDelegate.swift in Sources */,
 				49EE4ECE2161785D00995DDB /* PhotoCell.swift in Sources */,
+				492D00C621682C5800D40BFB /* PhotosDetailsViewController.swift in Sources */,
 				49574823216040FD00804666 /* PhotosViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
