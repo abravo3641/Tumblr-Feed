@@ -10,6 +10,8 @@ class PhotosViewController: UIViewController, UITableViewDataSource, UITableView
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    var image: UIImage!
+
     
     var posts: [[String: Any]] = [] //Holds dictionary of photos
 
@@ -75,6 +77,7 @@ class PhotosViewController: UIViewController, UITableViewDataSource, UITableView
             let urlString = originalSize["url"] as! String
             let url = URL(string: urlString)!
             cell.postImage.af_setImage(withURL: url)
+            
         }
         return cell
     }
